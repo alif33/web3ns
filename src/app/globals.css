@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Actor&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Fira+Mono:wght@400;500;700&display=swap');
+
+
+
+html, body, button, input, textarea {
+  font-family: 'Inter', sans-serif;
+}
+
+.fira-mono {
+  font-family: "Fira Mono", monospace;
+}
+
+.DM-mono {
+  font-family: "DM Mono", monospace;
+}
+
+.font-actor {
+  font-family: "Actor", sans-serif;
+}
+
+@layer components {
+
+  /* Style for the entire header container that includes logo and nav links */
+  .header-container {
+    @apply bg-gray-100 rounded-xl border-2 border-gray-800;
+  }
+
+  .header-logo {
+    @apply h-12 w-10; 
+  }
+
+  /* Define specific styles for navigation links */
+  .nav-link {
+    font-family: 'Inter', sans-serif; 
+    font-weight: 500;
+    font-size: 14px; 
+    color: #5B5B5B; 
+    padding: 50px;
+    border-radius: 5px; 
+    transition: color 0.3s ease; 
+  }
+
+  .nav-link:hover {
+    color: #555; 
+  }
+
+  .domain-registration-text {
+    color: #777777; 
+    font-family: 'Inter', sans-serif; 
+    font-weight: 400; 
+    font-size: 16px; 
+  }
+
+  /* Styling for the search bar */
+  .search-bar {
+    position: relative;
+    border-radius: 30px;
+    background: linear-gradient(to right, #2F75FF, #FF5EB0);
+    padding: 2px;
+    height: 60px;
+  }
+
+  .search-bar-inner {
+    background: white;
+    border-radius: 28px;
+    height: 100%;
+    width: 100%;
+  }
+
+  /* Styling for the search icon */
+  .search-icon {
+    position: absolute; 
+    top: 50%; 
+    right: 20px;
+    transform: translateY(-50%); 
+    background-color: #2F75FF; 
+    border-radius: 50%; 
+    padding: 10px; 
+    color: white; 
+    width: 20px; 
+    height: 20px; 
+    cursor: pointer;
+  }
+
+  /* Styling for the search text */
+  .search-text {
+    color: #777777; 
+    font-weight: 600;
+    font-family: 'Inter', sans-serif; 
+  }
+}
+
