@@ -8,8 +8,6 @@ import LandingPage from '@/components/home';
 // import { auth } from '../../firebaseClient';
 import { useDispatch, useSelector } from '@/lib/hooks';
 import { setUserDetails } from '@/lib/slices/userDetailsSlice';
-import { useRouter } from 'next/navigation';
-
 
 const  Home:React.FC = () => {
 
@@ -17,7 +15,6 @@ const  Home:React.FC = () => {
   const {name,email} = useSelector(state => state.userDetails)
 
   const dispatch = useDispatch();
-  const router = useRouter();
 
 
   useEffect(() => {
