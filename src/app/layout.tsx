@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ToastContainer} from 'react-toastify';
+// import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import StoreProvider from "./StoreProvider";
-import LogoutButton from "@/components/LogoutButton";
-import AuthProvider from "@/components/authProvider";
+// import StoreProvider from "./StoreProvider";
+// import LogoutButton from "@/components/LogoutButton";
+// import AuthProvider from "@/components/authProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,24 +22,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        //transition= 'Bounce'
-        />
-        <StoreProvider>
-         <AuthProvider>
+        {/* <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        /> */}
+        {/* <StoreProvider> */}
+         {/* <AuthProvider> */}
           {children}
-         </AuthProvider>
-        </StoreProvider>
+         {/* </AuthProvider>
+        </StoreProvider> */}
       </body>
     </html>
   );
