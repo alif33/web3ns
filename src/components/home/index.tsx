@@ -1,10 +1,10 @@
 // In your parent component file
 import React, { ChangeEvent, MouseEvent } from "react";
-import FaqSection from "./components/FaqSection";
-import Footer from "./components/Footer";
-import ClaimYourFuture from "./components/ClaimYourFuture";
-import New from "./components/New";
-import Heading from "./components/header2";
+import FaqSection from "./FaqSection";
+import Footer from "./Footer";
+import ClaimYourFuture from "./ClaimYourFuture";
+import New from "./New";
+import Heading from "./header2";
 
 interface LandingPageProps {
   handleNameInput: (event: ChangeEvent<HTMLInputElement>) => void;

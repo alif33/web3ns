@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
           {/* Left Half: Secure Your Space Text */}
           <div className="w-1/2 flex justify-start">
             <div className="w-3/4">
-              <p className="text-black font-extrabold text-4xl" >
+              <p className="montserrat text-black font-extrabold text-4xl" >
                 Secure your web3 domain space now{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#486EB9] to-[#D12865]">
                   before it's too late.
@@ -31,8 +31,8 @@ const Footer: React.FC = () => {
               <div className="flex flex-col w-full md:flex-row justify-between space-x-0 md:space-x-20 space-y-8 md:space-y-0">
                 {/*   <!-- Platform --> */}
                 <div className="flex flex-col items-center md:items-start">
-                  <div className="text-2xl font-bold text-black capitalize mb-5">
-                    Platform
+                  <div className="montserrat text-2xl font-bold text-black capitalize mb-5">
+                    <h3>Platform</h3>
                   </div>
                   <div className="flex flex-col items-center md:items-start space-y-3" style={{ fontFamily: 'Inter, sans-serif' , fontWeight: "500"}}>
                     {/*   <!-- Links --> */}
@@ -65,8 +65,10 @@ const Footer: React.FC = () => {
 
                 {/*    <!-- Social Container --> */}
                 <div className="flex flex-col items-center">
-                  <div className="text-2xl font-bold text-black capitalize mb-5 ">
-                    Community
+                  <div className="montserrat text-2xl font-bold text-black capitalize mb-5 ">
+                    <h3>
+                      Community
+                    </h3>
                   </div>
                   <div className="flex flex-col justify-center gap-4">
                     {/* Row 1 */}

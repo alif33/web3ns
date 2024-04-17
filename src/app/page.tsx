@@ -3,7 +3,7 @@
 // import { addDomainName } from '@/services/firebase-queries/domainQuery-addDomainName.ts';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import LandingPage from './landingPage';
+import LandingPage from '@/components/home';
 // import { signInAnonymously } from "firebase/auth";
 // import { auth } from '../../firebaseClient';
 import { useDispatch, useSelector } from '@/lib/hooks';

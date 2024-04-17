@@ -66,7 +66,7 @@ const FaqSection: React.FC = () => {
       id="faq"
       className="bg-white flex flex-col items-center justify-center min-h-screen"
     >
-      <div className="container max-w-5xl p-4 sm:p-24">
+      <div className="container p-4 sm:p-24">
         <div className="w-full">
           <h1 className="text-5xl text-center font-bold text-[#494949] drop-shadow-md mb-12">
             Frequently Asked Questions
@@ -84,7 +84,7 @@ const FaqSection: React.FC = () => {
                 </p>
                 <button
                   onClick={() => toggleFaq(faq.id)}
-                  className="ml-4 p-2 rounded border-2 border-gray-500 hover:bg-gray-300 hover:text-white transition-colors duration-200 ease-in-out cursor-pointer"
+                  className="ml-4 p-2 rounded hover:bg-gray-300 hover:text-white transition-colors duration-200 ease-in-out cursor-pointer"
                 >
                   {faq.isOpen ? (
                     <Image

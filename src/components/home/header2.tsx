@@ -32,7 +32,7 @@ const Heading: React.FC<HeadingProps>  = ({ handleNameInput }) => {
       {/* Sub-header with page title and search bar */}
       <div className="flex flex-col items-center justify-center my-8 p-10">
         <p className="text-center text-lg domain-registration-text">Register a domain space for your AI Agent</p>
-        <h1 className="text-4xl font-bold my-4">
+        <h1 className="ClashDisplayBold text-4xl font-bold my-4">
           Web3 Smart Agent Names
         </h1>
 
@@ -57,7 +57,7 @@ const Heading: React.FC<HeadingProps>  = ({ handleNameInput }) => {
             />
           </div>
         </div>
-        <div className="flex mt-5 gap-4">
+        <div className="flex mt-7 gap-4">
             <Image
               width={198}
               height={100}
