@@ -15,15 +15,15 @@ const Heading: React.FC<HeadingProps>  = ({ handleNameInput }) => {
           {/* Logo */}
           <Link href="/" legacyBehavior>
             <a className="items-center mr-8">
-              <Image src="/landingPage/head/logo.png" height={36} width={36} alt="logo" className="header-logo" />
+              <Image src="/logo.svg" height={36} width={36} alt="logo" className="header-logo" />
             </a>
           </Link>
 
           {/* Navigation Menu */}
           <nav className="flex-grow">
             <ul className="flex justify-end space-x-8">
-              <li><Link href="/three-token" legacyBehavior><a className="nav-link cursor-pointer text-gray-600 hover:text-gray-500 px-4 py-1">Three Token</a></Link></li>
-              <li><Link href="/login" legacyBehavior><a className="nav-link cursor-pointer text-gray-600 hover:text-gray-500 px-4 py-1">Login</a></Link></li>
+              <li><Link href="/three-token" legacyBehavior><a className="nav-link text-sm font-medium cursor-pointer text-gray-600 hover:text-gray-500 px-4 py-1">3Token</a></Link></li>
+              <li><Link href="/login" legacyBehavior><a className="nav-link text-sm font-medium cursor-pointer text-gray-600 hover:text-gray-500 px-4 py-1">Login</a></Link></li>
             </ul>
           </nav>
         </div>
@@ -32,8 +32,8 @@ const Heading: React.FC<HeadingProps>  = ({ handleNameInput }) => {
       {/* Sub-header with page title and search bar */}
       <div className="flex flex-col items-center justify-center my-8 p-10">
         <p className="text-center text-lg domain-registration-text">Register a domain space for your AI Agent</p>
-        <h1 className="ClashDisplayBold text-4xl font-bold my-4">
-          Web3 Smart Agent Names
+        <h1 className="ClashDisplayBold text-5xl font-bold my-4">
+          Web3 &nbsp; Smart &nbsp; Agent &nbsp; Names
         </h1>
 
         {/* Search Bar */}
@@ -57,33 +57,52 @@ const Heading: React.FC<HeadingProps>  = ({ handleNameInput }) => {
             />
           </div>
         </div>
-        <div className="flex mt-7 gap-4">
+
+        {/* Brands */}
+        <div className="flex mt-7 gap-7">
+          <div>
             <Image
-              width={198}
-              height={100}
-              src="/icons/icann.png"
-              alt="brand icon"
-            />
+                width={150}
+                height={77}
+                src="/icons/icann.png"
+                alt="brand icon"
+              />
+          </div>
+           <div>
             <Image
-              width={198}
-              height={102}
-              src="/icons/btc.png"
-              alt="brand icon"
-            />
-            <Image
-              width={176}
-              height={104}
-              src="/icons/farcaster.png"
-              alt="brand icon"
-            />
-            <Image
-              width={198}
-              height={104}
-              src="/icons/ens.png"
-              alt="brand icon"
-            />
+                width={150}
+                height={77}
+                src="/icons/btc.png"
+                alt="brand icon"
+              />
+           </div>
+            <div>
+              <Image
+                width={145}
+                height={74}
+                src="/icons/farcaster.png"
+                alt="brand icon"
+              />
+            </div>
+            <div>
+              <Image
+                width={150}
+                height={78}
+                src="/icons/ens.png"
+                alt="brand icon"
+              />
+            </div>
         </div>
       </div>
+      {/* Nft */}
+      <div>
+          <Image
+            height={300}
+            width={1612}
+            src="/nft.svg"
+            alt="/Nft images"
+          />
+        </div>
     </div>
   );
 }

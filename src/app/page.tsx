@@ -7,7 +7,7 @@ import LandingPage from '@/components/home';
 // import { signInAnonymously } from "firebase/auth";
 // import { auth } from '../../firebaseClient';
 import { useDispatch, useSelector } from '@/lib/hooks';
-import { setUserDetails } from '@/lib/slices/userDetailsSlice';
+// import { setUserDetails } from '@/lib/slices/userDetailsSlice';
 
 const  Home:React.FC = () => {
 
@@ -48,7 +48,7 @@ const  Home:React.FC = () => {
   }
   
   const handleNameInput = (e:React.ChangeEvent<HTMLInputElement>) => {
-     dispatch(setUserDetails({name:e.target.value}))
+    //  dispatch(setUserDetails({name:e.target.value}))
   }
 
   // const handleButtonClick = async (e:React.MouseEvent<HTMLButtonElement>) => {
