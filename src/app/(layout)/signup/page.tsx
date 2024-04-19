@@ -1,5 +1,5 @@
-import Image from "next/image"
 import React from "react"
+import Image from "next/image"
 
 interface SignUpProps {
     searchParams: {
@@ -8,10 +8,6 @@ interface SignUpProps {
 }
 
 const SignUp: React.FC<SignUpProps> = (props)=>{
-    console.log();
-    
-    const freeEdition = ["Standard Smart Agent Interface", "Basic models and data setup", "Standard website template", "Self-service support only"]
-    const customAi = ["We know brands", "Custom AI", "Customizable models and data", "Optimized Layout", "Personalized Services"]
     
     return(
         <div className="min-h-screen bg-multi">

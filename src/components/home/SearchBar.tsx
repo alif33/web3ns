@@ -1,13 +1,31 @@
 import React, { useState, ChangeEvent } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
+import { toast } from "react-toastify"
 
 const SearchBar = ()=>{
     const [query, setQuery] = useState<string>("")
     const router = useRouter()
 
+
+    function isValid(domain:string) {
+      domain = domain.trim()
+
+      const rgx = /^(?!-)(?!.*--)[A-Za-z0-9-]+(?<!-)$/;
+      if (rgx.test(domain)) {
+        return true
+      }else{
+        console.log("Invalid domain")
+        return false
+      } 
+    }
+    
     const handleSearch = ()=>{
+      if (!isValid(query)) {
+        toast('Invalid name. Please check the format.')
+      }else{
         router.push(`/signup?name=${query}`)
+      }
     }    
 
     return(
