@@ -1,11 +1,18 @@
 "use client"
 import { useSearchParams } from "next/navigation"
+import { useEffect, useState } from "react"
 const Agent = ()=>{
+    const [name, setName] = useState<string|null>("")
     const searchParams = useSearchParams()
-    const name = searchParams.get('name')
-    
+
+    useEffect(()=>{
+        const _name_ = searchParams.get('name')
+        setName(_name_)
+    }, [])
+
+
     return(
-        <h3><span className=" font-semibold">Web3 Agent Name </span>: {name}</h3>
+       
     )
 }
 export default Agent

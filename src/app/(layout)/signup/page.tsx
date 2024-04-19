@@ -1,7 +1,16 @@
 import Image from "next/image"
 import Agent from "@/components/signup/Agent"
+import React from "react"
 
-const SignUp = ()=>{
+interface SignUpProps {
+    searchParams: {
+        name: string;
+    }
+}
+
+const SignUp: React.FC<SignUpProps> = (props)=>{
+    console.log();
+    
     const freeEdition = ["Standard Smart Agent Interface", "Basic models and data setup", "Standard website template", "Self-service support only"]
     const customAi = ["We know brands", "Custom AI", "Customizable models and data", "Optimized Layout", "Personalized Services"]
     
@@ -43,7 +52,7 @@ const SignUp = ()=>{
                                 </div>
                             </div>
                             <div className="flex py-3 gap-7">
-                                <Agent/>
+                                <h3><span className=" font-semibold">Web3 Agent Name </span>: {props.searchParams.name}</h3>
                                 <span>Edit</span>
                             </div>
                             <button className="w-full h-12 bg-gradient-to-r from-custom-purple to-custom-pink text-white font-medium rounded-xl shadow-xl">Continue</button>
