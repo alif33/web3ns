@@ -4,7 +4,7 @@ import FaqSection from "./FaqSection";
 import Footer from "./Footer";
 import ClaimYourFuture from "./ClaimYourFuture";
 import New from "./New";
-import Heading from "./header2";
+import Heading from "./Header";
 
 interface LandingPageProps {
   handleNameInput: (event: ChangeEvent<HTMLInputElement>) => void;

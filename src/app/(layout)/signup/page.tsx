@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Agent from "@/components/signup/Agent"
 
 const SignUp = ()=>{
     const freeEdition = ["Standard Smart Agent Interface", "Basic models and data setup", "Standard website template", "Self-service support only"]
@@ -42,7 +43,7 @@ const SignUp = ()=>{
                                 </div>
                             </div>
                             <div className="flex py-3 gap-7">
-                                <h3><span className=" font-semibold">Web3 Agent Name </span>: Shobhit.3ns.ai</h3>
+                                <Agent/>
                                 <span>Edit</span>
                             </div>
                             <button className="w-full h-12 bg-gradient-to-r from-custom-purple to-custom-pink text-white font-medium rounded-xl shadow-xl">Continue</button>

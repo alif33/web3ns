@@ -1,6 +1,7 @@
 import React, { ChangeEvent, MouseEvent } from "react";
 import Image from "next/image";
 import Link from 'next/link';
+import SearchBar from "./SearchBar";
 
 interface HeadingProps {
   handleNameInput: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -22,7 +23,7 @@ const Heading: React.FC<HeadingProps>  = ({ handleNameInput }) => {
           {/* Navigation Menu */}
           <nav className="flex-grow">
             <ul className="flex justify-end space-x-8">
-              <li><Link href="/three-token" legacyBehavior><a className="nav-link text-sm font-medium cursor-pointer text-gray-600 hover:text-gray-500 px-4 py-1">3Token</a></Link></li>
+              <li><a href="https://www.3token.xyz/" target="_blank" className="nav-link text-sm font-medium cursor-pointer text-gray-600 hover:text-gray-500 px-4 py-1">3Token</a></li>
               <li><Link href="/login" legacyBehavior><a className="nav-link text-sm font-medium cursor-pointer text-gray-600 hover:text-gray-500 px-4 py-1">Login</a></Link></li>
             </ul>
           </nav>
@@ -37,26 +38,7 @@ const Heading: React.FC<HeadingProps>  = ({ handleNameInput }) => {
         </h1>
 
         {/* Search Bar */}
-        <div className="relative search-bar w-2/5">
-          <input
-            id="id-s03"
-            type="search"
-            name="id-s03"
-            placeholder="Search web3 domain"
-            aria-label="Search content"
-            className="w-full h-14 px-4 rounded-full shadow-inner"
-            style={{ fontFamily: "Inter, sans-serif", fontWeight: "600", boxShadow: "inset 0 0 5px #777777" }}
-            onChange={handleNameInput}
-          />
-          <div onClick={()=>{}} className="absolute top-[6px] right-2 flex justify-center items-center w-12 h-12 rounded-full bg-[#2F75FF] shadow-md cursor-pointer">
-            <Image
-              width={18}
-              height={18}
-              src="/icons/search.svg"
-              alt="search icon"
-            />
-          </div>
-        </div>
+        <SearchBar/>
 
         {/* Brands */}
         <div className="flex mt-7 gap-7">
