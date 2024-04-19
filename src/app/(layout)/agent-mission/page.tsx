@@ -1,6 +1,11 @@
 import Image from "next/image"
+import Link from "next/link"
 
 const AgentMission = ()=>{
+
+    // const 
+
+
     return(
         <div className="min-h-screen bg-multi">
             <div></div>
@@ -12,7 +17,8 @@ const AgentMission = ()=>{
                     </div>
 
                     <div className="flex justify-center items-center mt-5 gap-3">
-                        <div className="mission-card w-[289px] bg-[#F2F2F2] h-[143px] rounded-2xl px-5 pt-3">
+                        {/* Card 1 */}
+                        <Link href="/ai-agent" className="mission-card w-[289px] bg-[#F2F2F2] h-[143px] rounded-2xl px-5 pt-3">
                             <div className="flex justify-center">
                                 <Image
                                     height={27}
@@ -23,8 +29,9 @@ const AgentMission = ()=>{
                             </div>
                             <h3 className="text-2xl font-semibold text-center py-2">Business</h3>
                             <h5 className="text-sm text-center">How much capable chat.ai to full-fill your needs</h5>
-                        </div>
-                        <div className="mission-card w-[289px] bg-[#F2F2F2] h-[143px] rounded-2xl px-5 pt-3">
+                        </Link>
+                        {/* Card 2 */}
+                        <Link href="/ai-agent" className="mission-card w-[289px] bg-[#F2F2F2] h-[143px] rounded-2xl px-5 pt-3">
                             <div className="flex justify-center">
                                 <Image
                                     height={27}
@@ -35,8 +42,9 @@ const AgentMission = ()=>{
                             </div>
                             <h3 className="text-2xl font-semibold text-center py-2">Hustler</h3>
                             <h5 className="text-sm text-center">How much capable chat.ai to full-fill your needs</h5>
-                        </div>
-                        <div className="mission-card w-[289px] bg-[#F2F2F2] h-[143px] rounded-2xl px-5 pt-3">
+                        </Link>
+                        {/* Card 3 */}
+                        <Link href="/ai-agent" className="mission-card w-[289px] bg-[#F2F2F2] h-[143px] rounded-2xl px-5 pt-3">
                             <div className="flex justify-center">
                                 <Image
                                     height={30}
@@ -47,7 +55,7 @@ const AgentMission = ()=>{
                             </div>
                             <h3 className="text-2xl font-semibold text-center py-2">Personal</h3>
                             <h5 className="text-sm text-center">How much capable chat.ai to full-fill your needs</h5>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>
