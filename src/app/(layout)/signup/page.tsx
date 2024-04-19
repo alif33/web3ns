@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Agent from "@/components/signup/Agent"
 import React from "react"
 
 interface SignUpProps {
