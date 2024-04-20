@@ -21,8 +21,8 @@ const FaqItem:React.FC<ItemProps> = ({ question, answer, index, size, isOpen, ha
             }`}
         >
         <div className="flex justify-between items-center">
-          <p className="text-left flex-1 text-[#1A1A1A] font-bold">
-            {question}
+          <p className="text-left flex-1 text-[#1A1A1A] font-bold" dangerouslySetInnerHTML={{__html: question}}>
+           
           </p>
           <button
             onClick={() => handleToggle(index)}

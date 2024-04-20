@@ -92,7 +92,7 @@ const faqData: FaqItem[] = [
     `
   },
   {
-    question: `re there educational resources available on the platform?`,
+    question: `Are there educational resources available on the platform?`,
     answer: `
       <p>Absolutely! 3NS.AI recognizes that knowledge is power, especially in the dynamic world of AI trading. We provide a variety of resources to support your learning journey:</p>
       <p>In-Platform Guides & Tutorials:  Our platform will integrate context-sensitive tutorials, explaining concepts where they are most relevant – from basic market terminology to advanced AI agent customization.</p>
