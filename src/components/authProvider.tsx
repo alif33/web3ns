@@ -1,9 +1,9 @@
 'use client'
-import { useEffect, ReactNode } from 'react';
-import {onAuthStateChanged, User } from 'firebase/auth';
-import { setUser } from '@/lib/slices/authSlice';
-import {auth} from '../../firebaseClient'
-import { useDispatch } from '@/lib/hooks';
+import { useEffect, ReactNode } from "react"
+import {onAuthStateChanged, User } from "firebase/auth"
+import { setUser } from "@/lib/slices/authSlice"
+import { auth } from "@/db/firebase"
+import { useDispatch } from "@/lib/hooks"
 
 interface AuthProviderProps {
   children: ReactNode;
