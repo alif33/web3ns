@@ -45,7 +45,7 @@ const Form:React.FC<FormProps> = ()=>{
                 <div className="relative border-2 border-[#F2F2F2] rounded-xl">
                     <input 
                         id="Password"
-                        type="text"
+                        type="password"
                         className="w-full h-12 pl-3 rounded-xl"
                         placeholder="Password"
                         value={password}
