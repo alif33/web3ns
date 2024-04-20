@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, useEffect } from "react"
-import { addDomainName } from "@/services/firebase-queries/domainQuery-addDomainName.ts"
+import { addDomainName } from "@/db/queries"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { toast } from "react-toastify"

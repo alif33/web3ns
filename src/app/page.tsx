@@ -1,6 +1,5 @@
 
 'use client'
-// import { addDomainName } from '@/services/firebase-queries/domainQuery-addDomainName.ts';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import LandingPage from '@/components/home';
@@ -60,7 +59,6 @@ const  Home:React.FC = () => {
   //   else{
   //     try {
   //       let anonymousUserID = userState.uid
-  //       let added = await addDomainName(name,anonymousUserID,email);
   //       if(added){
   //          router.push('/signup')
   //          console.log('added successfully')
@@ -73,14 +71,10 @@ const  Home:React.FC = () => {
 
 
   return (
-
-
-    <div>
       <LandingPage 
         handleNameInput={handleNameInput} 
         // handleButtonClick={handleButtonClick}
       ></LandingPage>
-    </div>
   );
 }
 

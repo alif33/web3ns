@@ -2,10 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 const AgentMission = ()=>{
-
-    // const 
-
-
+    
     return(
         <div className="min-h-screen bg-multi">
             <div></div>
