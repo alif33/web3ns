@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, useEffect } from "react"
+import React, { ChangeEvent, useEffect } from "react"
 import { addDomainName } from "@/db/queries"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
@@ -18,7 +18,7 @@ const SearchBar = ()=>{
     function isValid(domain:string) {
       domain = domain.trim()
 
-      const rgx = /^(?!-)(?!.*--)[A-Za-z0-9-]+(?<!-)$/;
+      const rgx = /^(?!-)(?!.*--)[A-Za-z0-9-]+(?<!-)$/
       if (rgx.test(domain)) {
         return true
       }else{
@@ -33,7 +33,7 @@ const SearchBar = ()=>{
       }else{
         try {
           let anonymousUserID = userState.uid
-          let added = await addDomainName(name,anonymousUserID,email);
+          let added = await addDomainName(name, anonymousUserID, email)
           if(added){
             router.push(`/signup?name=${name}`)
           }
@@ -67,7 +67,10 @@ const SearchBar = ()=>{
             aria-label="Search content"
             className="w-full h-14 px-4 rounded-full shadow-inner"
             style={{ fontFamily: "Inter, sans-serif", fontWeight: "600", boxShadow: "inset 0 0 5px #777777" }}
-            onChange={(e:ChangeEvent<HTMLInputElement>)=>dispatch(setUserDetails({name:e.target.value}))}
+            onChange={(
+              e:ChangeEvent<HTMLInputElement>)=>
+                dispatch(setUserDetails({name:e.target.value})
+            )}
           />
           <div onClick={handleSearch} className="absolute top-[6px] right-2 flex justify-center items-center w-12 h-12 rounded-full bg-[#2F75FF] shadow-md cursor-pointer">
             <Image
