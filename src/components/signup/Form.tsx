@@ -3,6 +3,7 @@ import React from "react"
 import Input from "./Input"
 import { useSelector } from "@/lib/hooks"
 import { toast } from "react-toastify"
+import { useRouter } from "next/navigation"
 
 interface FormProps {
     domainName: string
@@ -10,6 +11,7 @@ interface FormProps {
 
 const Form:React.FC<FormProps> = ({ domainName })=>{
     const { name, email } = useSelector(state =>state.userDetails)
+    const router = useRouter()
 
     const handleAccount = (e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
@@ -17,12 +19,14 @@ const Form:React.FC<FormProps> = ({ domainName })=>{
         if(regex.test(email)){
             console.log(name, email);
             
-        // router.push(`/password`);
+            router.push(`/checkout`);
         }else{
-        // toast('Please enter valid email address')
+            toast('Please enter a valid email address')
         }
     }
 
+    console.log(domainName, "DMN");
+    
     return(
         <form onSubmit={handleAccount}>
             <Input/>
