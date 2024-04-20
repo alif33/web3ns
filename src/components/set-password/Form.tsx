@@ -16,16 +16,26 @@ interface FormProps {}
 
 const Form:React.FC<FormProps> = ()=>{
     const [password, setPassword] = useState<string>("")
-    const userState = useSelector(state => state.user.user)
     const { name, email } = useSelector(state =>state.userDetails)
     const dispatch = useDispatch()
     const router = useRouter()
 
     const handlePassword = async(e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
-        const credential = EmailAuthProvider.credential(email, password)
-        await linkWithCredential(auth?.currentUser, credential)
-        router.push("/smart-agent")
+
+        if (!auth.currentUser || !email) {
+            router.push("/signup");
+            return;
+        }
+
+        try {
+            const credential = EmailAuthProvider.credential(email, password)
+            await linkWithCredential(auth?.currentUser, credential)
+            router.push("/smart-agent")
+        } catch (error) {
+            console.log(error)
+        }
+       
     }
 
     return(

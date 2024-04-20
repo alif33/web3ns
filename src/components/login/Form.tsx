@@ -9,17 +9,19 @@ import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
 import { auth } from "@/db/firebase"
 import {onAuthStateChanged, User } from "firebase/auth"
+import { RootState } from "@/lib/store";
 
 interface FormProps {}
 
 const Form:React.FC<FormProps> = ()=>{
     const [password, setPassword] = useState<string>("")
-    const userState = useSelector(state => state.user.user)
-    const email = userState.email
+    const {name, email} = useSelector((state: RootState) => state.userDetails)    
 
     const dispatch = useDispatch()
     const router = useRouter()
 
+    console.log(useState);
+    
 
     const handleForgetPassword = async()=>{
         await sendPasswordResetEmail(auth, email)
