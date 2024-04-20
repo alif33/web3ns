@@ -1,13 +1,18 @@
-import React, { useState, ChangeEvent } from "react"
+import React, { useState, ChangeEvent, useEffect } from "react"
+import { addDomainName } from "@/services/firebase-queries/domainQuery-addDomainName.ts"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { toast } from "react-toastify"
+import { useDispatch, useSelector } from "@/lib/hooks"
+import { signInAnonymously } from "firebase/auth"
+import { auth } from "@/db/firebase"
 
 const SearchBar = ()=>{
     const [query, setQuery] = useState<string>("")
     const router = useRouter()
-
-
+    const userState:any = useSelector(state =>  state.user.user)
+    const { name, email } = useSelector(state => state.userDetails)
+    
     function isValid(domain:string) {
       domain = domain.trim()
 
@@ -20,13 +25,35 @@ const SearchBar = ()=>{
       } 
     }
     
-    const handleSearch = ()=>{
+    const handleSearch = async()=>{
       if (!isValid(query)) {
         toast('Invalid name. Please check the format.')
       }else{
-        router.push(`/signup?name=${query}`)
+        try {
+          let anonymousUserID = userState.uid
+          let added = await addDomainName(name,anonymousUserID,email);
+          if(added){
+            router.push(`/signup?name=${query}`)
+          }
+        } catch (error) {
+            console.log(error)
+        }
       }
     }    
+
+    const signIn = async () => {
+      
+      if(userState && userState.uid) return ""
+        try {
+          await signInAnonymously(auth)
+        } catch (error) {
+          console.error('Failed to create an anonymous user:', error)
+        }
+      }
+
+    useEffect(()=>{
+      signIn()
+    }, [])
 
     return(
         <div className="relative search-bar w-2/5">

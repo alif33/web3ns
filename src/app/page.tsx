@@ -73,15 +73,7 @@ const  Home:React.FC = () => {
 
 
   return (
-    // <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-blue-950">
-  
-    //   <div className="flex flex-row" >
-    //     <input type="text" name="" className="w-1/3 min-w-80 p-2 rounded-lg" value={agentName} onChange={(e) => handleNameInput(e)} id="" placeholder="Secure your Web3 Ai Agent Name " />
-    //     <button className=" ml-8  w-28 bg-slate-50  font-bold rounded-xl " onClick={handleButtonClick} >Search</button>
 
-    //   </div>
-
-    // </main>
 
     <div>
       <LandingPage 

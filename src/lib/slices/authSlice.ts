@@ -14,8 +14,6 @@ const initialState: AuthState = {
   user: "", 
 };
 
-
-
 export const authSlice = createSlice({
   name: 'user',
   initialState,
