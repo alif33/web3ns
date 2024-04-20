@@ -5,14 +5,16 @@ import { useRouter } from "next/navigation"
 import { toast } from "react-toastify"
 import { useDispatch, useSelector } from "@/lib/hooks"
 import { signInAnonymously } from "firebase/auth"
+import { setUserDetails } from "@/lib/slices/userDetailsSlice"
 import { auth } from "@/db/firebase"
 
 const SearchBar = ()=>{
-    const [query, setQuery] = useState<string>("")
     const router = useRouter()
     const userState:any = useSelector(state =>  state.user.user)
     const { name, email } = useSelector(state => state.userDetails)
     
+    const dispatch = useDispatch()
+
     function isValid(domain:string) {
       domain = domain.trim()
 
@@ -26,14 +28,14 @@ const SearchBar = ()=>{
     }
     
     const handleSearch = async()=>{
-      if (!isValid(query)) {
+      if (!isValid(name)) {
         toast('Invalid name. Please check the format.')
       }else{
         try {
           let anonymousUserID = userState.uid
           let added = await addDomainName(name,anonymousUserID,email);
           if(added){
-            router.push(`/signup?name=${query}`)
+            router.push(`/signup?name=${name}`)
           }
         } catch (error) {
             console.log(error)
@@ -65,7 +67,7 @@ const SearchBar = ()=>{
             aria-label="Search content"
             className="w-full h-14 px-4 rounded-full shadow-inner"
             style={{ fontFamily: "Inter, sans-serif", fontWeight: "600", boxShadow: "inset 0 0 5px #777777" }}
-            onChange={(e:ChangeEvent<HTMLInputElement>)=>setQuery(e.target.value)}
+            onChange={(e:ChangeEvent<HTMLInputElement>)=>dispatch(setUserDetails({name:e.target.value}))}
           />
           <div onClick={handleSearch} className="absolute top-[6px] right-2 flex justify-center items-center w-12 h-12 rounded-full bg-[#2F75FF] shadow-md cursor-pointer">
             <Image
