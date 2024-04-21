@@ -10,6 +10,7 @@ import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
 import { auth } from "@/db/firebase"
 import {linkWithCredential, User } from "firebase/auth"
+import { getErrorMessage } from "@/lib/errorHandler"
 
 
 interface FormProps {}
@@ -33,9 +34,9 @@ const Form:React.FC<FormProps> = ()=>{
             await linkWithCredential(auth?.currentUser, credential)
             router.push("/smart-agent")
         } catch (error) {
-            console.log(error)
+            const errMessage = getErrorMessage((error as Error).message)
+            toast.error(errMessage)
         }
-       
     }
 
     return(
