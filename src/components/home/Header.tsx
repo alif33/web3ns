@@ -1,15 +1,19 @@
-import React, { ChangeEvent, MouseEvent } from "react";
-import Image from "next/image";
-import Link from 'next/link';
-import SearchBar from "./SearchBar";
+// "use client"
+import React from "react"
+import Image from "next/image"
+import Link from 'next/link'
+import SearchBar from "./SearchBar"
+import { useSelector } from "react-redux"
+import { RootState } from "@/lib/store"
 
 interface HeadingProps {
 }
 
 const Heading: React.FC<HeadingProps>  = () => {
+  // const userState = useSelector((state: RootState) =>  state.user)
+
   return (
     <div className="flex-col">
-      {/* Top bar with logo and menu items */}
       <div className="items-center py-4 px-12 bg-white">
         <div className="bg-gray-100 rounded-xl flex items-center border-2 border-grey-800 p-2 w-full">
           {/* Logo */}
@@ -23,7 +27,7 @@ const Heading: React.FC<HeadingProps>  = () => {
           <nav className="flex-grow">
             <ul className="flex justify-end space-x-8">
               <li><a href="https://www.3token.xyz/" target="_blank" className="nav-link text-sm font-medium cursor-pointer text-gray-600 hover:text-gray-500 px-4 py-1">3Token</a></li>
-              <li><Link href="/login" legacyBehavior><a className="nav-link text-sm font-medium cursor-pointer text-gray-600 hover:text-gray-500 px-4 py-1">Login</a></Link></li>
+              <li><Link  href="/login" className="nav-link text-sm font-medium cursor-pointer text-gray-600 hover:text-gray-500 px-4 py-1">Login</Link></li>
             </ul>
           </nav>
         </div>
@@ -88,4 +92,4 @@ const Heading: React.FC<HeadingProps>  = () => {
   );
 }
 
-export default Heading;
+export default Heading
