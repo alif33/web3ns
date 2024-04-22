@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import StoreProvider from "./StoreProvider";
-import LogoutButton from "@/components/LogoutButton";
-import AuthProvider from "@/components/authProvider";
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
+import { ToastContainer} from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import StoreProvider from "./StoreProvider"
+import LogoutButton from "@/components/LogoutButton"
+import AuthProvider from "@/components/authProvider"
 
 const inter = Inter({ subsets: ["latin"] });
 

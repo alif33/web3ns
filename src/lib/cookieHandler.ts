@@ -15,11 +15,13 @@ const getUser = ()=>{
     return getCookie("__iSUsraCTv__") || false 
 }
 
-const setUser = async (a: boolean)=>{
-    setCookie("__iSUsraCTv__", {isU: a})
+const setIsUser = async (a: boolean)=>{
+    if (a) {
+        setCookie("__iSUsraCTv__", a)
+    }
 }
 
 export { 
     getUser, 
-    setUser 
+    setIsUser 
 }

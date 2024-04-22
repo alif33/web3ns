@@ -1,4 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { getUser } from "@/lib/cookieHandler"
+
 interface User {
   uid: string
   email: string | null
@@ -7,11 +9,13 @@ interface User {
 }
 
 interface AuthState {
-  user: User | ""; // Set the user type to match the payload or null for the initial state
+  user: User | "";
+  isAuth: boolean // Set the user type to match the payload or null for the initial state
 }
 
 const initialState: AuthState = {
-  user: "", 
+  user: "",
+  isAuth: getUser()
 };
 
 export const authSlice = createSlice({
@@ -19,16 +23,20 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action: PayloadAction<{ uid: string, email: string | null, displayName: string | null, accessToken: string }>) => {
-      console.log(action.payload)  
-      state.user = action.payload;
-      },
+      state.user = action.payload
+      
+    },
+    setAuth: (state, action: PayloadAction<{ isAuth: boolean }>) => {
+      state.isAuth = action.payload.isAuth
+      
+    },
     clearUser: (state) => {
       state.user = "";
     },
   },
 });
 
-export const { setUser, clearUser } = authSlice.actions;
+export const { setUser, clearUser, setAuth } = authSlice.actions;
 
 
 

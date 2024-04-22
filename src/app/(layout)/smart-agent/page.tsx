@@ -1,13 +1,22 @@
 "use client"
+import { getUser } from "@/lib/cookieHandler"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
+import { useSelector } from "react-redux"
 
 const SmartAgent = ()=>{
+    const userState:any = useSelector((state:any) =>  state.user)
     const router = useRouter()
 
+    const user = getUser()
+    console.log(user, "USR");
+    
     const freeEdition = ["Standard Smart Agent Interface", "Basic models and data setup", "Standard website template", "Self-service support only"]
     const customAi = ["We know brands", "Custom AI", "Customizable models and data", "Optimized Layout", "Personalized Services"]
     
+    console.log(userState);
+    
+
     return(
         <div className="bg-multi pb-40">
             <div></div>

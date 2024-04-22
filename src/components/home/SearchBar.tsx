@@ -10,11 +10,11 @@ import { auth } from "@/db/firebase"
 
 const SearchBar = ()=>{
     const router = useRouter()
-    const userState:any = useSelector(state =>  state.user.user)
+    const userState:any = useSelector(state =>  state.user)
     const { name, email } = useSelector(state => state.userDetails)
     
     const dispatch = useDispatch()
-
+  
     function isValid(domain:string) {
       domain = domain.trim()
 
@@ -32,10 +32,15 @@ const SearchBar = ()=>{
         toast('Invalid name. Please check the format.')
       }else{
         try {
-          let anonymousUserID = userState.uid
+          let anonymousUserID = userState.user.uid
           let added = await addDomainName(name, anonymousUserID, email)
           if(added){
-            router.push(`/signup?name=${name}`)
+            if (userState.isAuth) {
+              router.push('/smart-agent')
+            }else{
+              router.push(`/signup?name=${name}`)
+            }
+            
           }
         } catch (error) {
             console.log(error)
@@ -45,16 +50,22 @@ const SearchBar = ()=>{
 
     const signIn = async () => {
       
-      if(userState && userState.uid) return ""
+      if(userState && userState.user.uid) return ""
         try {
           await signInAnonymously(auth)
         } catch (error) {
           console.error('Failed to create an anonymous user:', error)
         }
-      }
+    }
 
+    console.log(userState);
+    
     useEffect(()=>{
-      signIn()
+      if (!userState.isAuth) {
+        // console.log(userState.isAuth);
+        
+        signIn();
+      }
     }, [])
 
     return(

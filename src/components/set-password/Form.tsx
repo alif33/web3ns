@@ -11,6 +11,8 @@ import { useRouter } from "next/navigation"
 import { auth } from "@/db/firebase"
 import {linkWithCredential, User } from "firebase/auth"
 import { getErrorMessage } from "@/lib/errorHandler"
+import { setIsUser } from "@/lib/cookieHandler"
+import { setAuth, setUser } from "@/lib/slices/authSlice"
 
 
 interface FormProps {}
@@ -31,8 +33,20 @@ const Form:React.FC<FormProps> = ()=>{
 
         try {
             const credential = EmailAuthProvider.credential(email, password)
-            await linkWithCredential(auth?.currentUser, credential)
-            router.push("/smart-agent")
+            const loggedIn = await linkWithCredential(auth?.currentUser, credential)
+
+            if (loggedIn) {
+                const user = loggedIn.user
+                setIsUser(true)
+                dispatch(setUser({
+                    uid: user?.uid,
+                    email: user?.email,
+                    displayName: user?.displayName,
+                    accessToken: user?.refreshToken,
+                }))
+                setAuth({isAuth: true})
+                router.push("/smart-agent")
+            }
         } catch (error) {
             const errMessage = getErrorMessage((error as Error).message)
             toast.error(errMessage)

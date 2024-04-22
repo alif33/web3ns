@@ -19,9 +19,9 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 uid: user?.uid,
                 email: user?.email,
                 displayName: user?.displayName,
-                accessToken: user?.refreshToken 
+                accessToken: user?.refreshToken,
             }
-            dispatch(setUser(userObj));
+            dispatch(setUser(userObj))
         }
     });
 
@@ -32,3 +32,4 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 };
 
 export default AuthProvider;
+

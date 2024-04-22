@@ -10,8 +10,9 @@ import { useRouter } from "next/navigation"
 import { auth } from "@/db/firebase"
 import {onAuthStateChanged, User } from "firebase/auth"
 import { RootState } from "@/lib/store"
-import {setUser} from "@/lib/cookieHandler"
+import { setIsUser } from "@/lib/cookieHandler"
 import { getErrorMessage } from "@/lib/errorHandler"
+import { setUser, setAuth } from "@/lib/slices/authSlice"
 
 interface FormProps {}
 
@@ -32,10 +33,16 @@ const Form:React.FC<FormProps> = ()=>{
         try {
             const loggedIn = await signInWithEmailAndPassword(auth, email, password)
             if (loggedIn) {
-                setUser(true)
-                console.log(loggedIn);
-                
-                // router.push("/smart-agent")
+                const user = loggedIn.user
+                setIsUser(true)
+                dispatch(setUser({
+                    uid: user?.uid,
+                    email: user?.email,
+                    displayName: user?.displayName,
+                    accessToken: user?.refreshToken,
+                }))
+                setAuth({isAuth: true})
+                router.push("/smart-agent")
             }
         } catch (error) {
             const errMessage = getErrorMessage((error as Error).message)

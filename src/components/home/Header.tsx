@@ -4,10 +4,9 @@ import Link from 'next/link';
 import SearchBar from "./SearchBar";
 
 interface HeadingProps {
-  handleNameInput: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Heading: React.FC<HeadingProps>  = ({ handleNameInput }) => {
+const Heading: React.FC<HeadingProps>  = () => {
   return (
     <div className="flex-col">
       {/* Top bar with logo and menu items */}

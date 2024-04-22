@@ -6,18 +6,11 @@ import ClaimYourFuture from "./ClaimYourFuture";
 import New from "./New";
 import Heading from "./Header";
 
-interface LandingPageProps {
-  handleNameInput: (event: ChangeEvent<HTMLInputElement>) => void;
-  // handleButtonClick: (event: MouseEvent<HTMLButtonElement>) => void;
-}
 
-const HomePage: React.FC<LandingPageProps> = ({handleNameInput}) => {
+const HomePage: React.FC = () => {
   return (
     <div className="bg-white ">
-      <Heading 
-        handleNameInput={handleNameInput} 
-        // handleButtonClick={handleButtonClick} 
-      />
+      <Heading/>
       <New />
       <ClaimYourFuture />
       <FaqSection />
