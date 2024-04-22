@@ -9,7 +9,9 @@ import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
 import { auth } from "@/db/firebase"
 import {onAuthStateChanged, User } from "firebase/auth"
-import { RootState } from "@/lib/store";
+import { RootState } from "@/lib/store"
+import {setUser} from "@/lib/cookieHandler"
+import { getErrorMessage } from "@/lib/errorHandler"
 
 interface FormProps {}
 
@@ -20,9 +22,6 @@ const Form:React.FC<FormProps> = ()=>{
     const dispatch = useDispatch()
     const router = useRouter()
 
-    console.log(useState);
-    
-
     const handleForgetPassword = async()=>{
         await sendPasswordResetEmail(auth, email)
         toast('Please check your email')
@@ -30,8 +29,21 @@ const Form:React.FC<FormProps> = ()=>{
 
     const handleLoggIned = async(e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
-        await signInWithEmailAndPassword(auth, email, password)
-        router.push("/smart-agent")
+        try {
+            const loggedIn = await signInWithEmailAndPassword(auth, email, password)
+            if (loggedIn) {
+                setUser(true)
+                console.log(loggedIn);
+                
+                // router.push("/smart-agent")
+            }
+        } catch (error) {
+            const errMessage = getErrorMessage((error as Error).message)
+            console.log((error as Error).message);
+            
+            toast.error(errMessage)
+        }
+
     }
 
     return(
