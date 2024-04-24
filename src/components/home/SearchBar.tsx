@@ -82,7 +82,8 @@ const SearchBar = ()=>{
   }, [])
 
   return(
-      <div className="relative search-bar w-full md:w-2/5">
+    <div className="px-2 w-full flex justify-center">
+      <div className="relative search-bar h-[52px] md:h-[60px] w-full md:w-2/5">
         {loading && (
           <div className="absolute top-6 left-24">
             <PropagateLoader color="#3674F9" />
@@ -94,15 +95,15 @@ const SearchBar = ()=>{
           name="id-s03"
           placeholder="Search web3 domain"
           aria-label="Search content"
-          className="w-full h-14 px-4 rounded-full shadow-inner"
-          style={{ fontFamily: "Inter, sans-serif", fontWeight: "600", boxShadow: "inset 0 0 5px #777777" }}
+          className="w-full text-sm md:text-base font-medium md:font-semibold h-12 md:h-14 px-2 md:px-4 rounded-full shadow-inner"
+          style={{ fontFamily: "Inter, sans-serif", boxShadow: "inset 0 0 5px #777777" }}
           onKeyDown={handleKeyDown}
           onChange={(
             e:ChangeEvent<HTMLInputElement>)=>
               dispatch(setUserDetails({name:e.target.value})
           )}
         />
-        <div onClick={handleSearch} className="absolute top-[6px] right-2 flex justify-center items-center w-12 h-12 rounded-full bg-[#2F75FF] shadow-md cursor-pointer">
+        <div onClick={handleSearch} className="absolute top-[4px] md:top-[6px] right-1 md:right-2 flex justify-center items-center w-11 h-11 md:w-12 md:h-12 rounded-full bg-[#2F75FF] shadow-md cursor-pointer">
           <Image
             width={18}
             height={18}
@@ -111,6 +112,8 @@ const SearchBar = ()=>{
           />
         </div>
       </div>
+    </div>
+      
   )
 }
 

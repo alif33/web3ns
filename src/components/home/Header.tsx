@@ -34,12 +34,14 @@ const Heading: React.FC<HeadingProps>  = () => {
       </div>
 
       {/* Sub-header with page title and search bar */}
-      <div className="flex flex-col items-center justify-center my-8 p-10">
-        <p className="text-center text-lg domain-registration-text">Register a domain space for your AI Agent</p>
-        <h1 className="ClashDisplayBold text-center text-4xl md:text-5xl font-bold my-4">
-          Web3 &nbsp; Smart &nbsp; Agent &nbsp; Names
-        </h1>
-
+      <div className="flex flex-col items-center justify-center my-12">
+        <div className="px-10">
+          <p className="text-center text-sm md:text-lg domain-registration-text">Register a domain space for your AI Agent</p>
+          <h1 className="ClashDisplayBold text-center text-[42px] leading-[48px] md:text-5xl font-bold my-4">
+            Web3 &nbsp; Smart &nbsp; Agent &nbsp; Names
+          </h1>
+        </div>
+        
         {/* Search Bar */}
         <SearchBar/>
 
@@ -80,14 +82,25 @@ const Heading: React.FC<HeadingProps>  = () => {
         </div>
       </div>
       {/* Nft */}
-      <div>
+      <div className="hidden md:block">
+        <Image
+          height={300}
+          width={1612}
+          src="/nft.svg"
+          alt="/Nft images"
+        />
+      </div>
+      {/* NFT for mobile screen */}
+      <div className="block md:hidden">
+        <div className="flex justify-center">
           <Image
             height={300}
             width={1612}
-            src="/nft.svg"
+            src="/landingPage/nfts.png"
             alt="/Nft images"
           />
         </div>
+      </div>
     </div>
   );
 }

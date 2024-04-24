@@ -65,13 +65,13 @@ const MyComponent3 = ({}) => {
 
 const ClaimYourFuture = () => {
   return (
-    <div className="bg-white relative mt-40">
+    <div className="bg-white relative mt-24">
       <div className="flex flex-col items-center justify-center p-10">
-        <h1 className="text-4xl font-bold text-center">
-        Claim your future today
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-[#333333]">
+          Claim your future today
         </h1>
-        <p className="text-md text-center mt-2 mb-8">
-        3NS.ai  your gateway to not being left behind.
+        <p className="text-sm text-center mt-2 mb-8">
+          3NS.ai  your gateway to not being left behind.
         </p>
         <div className="flex flex-col md:flex-row md:justify-center md:space-x-4 w-full md:items-stretch space-y-5 md:space-y-0 items-center">
           <MyComponent1 />

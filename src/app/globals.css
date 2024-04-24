@@ -157,7 +157,7 @@ html, body, button, input, textarea {
     border-radius: 30px;
     background: linear-gradient(to right, #2F75FF, #FF5EB0);
     padding: 2px;
-    height: 60px;
+    /* height: 60px; */
   }
 
   .search-bar-inner {
