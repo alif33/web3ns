@@ -1,17 +1,18 @@
 // In your parent component file
-import React from "react";
+import React from "react"
+import Image from "next/image"
 
 const MyComponent1 = ({}) => {
   return (
     <div className="w-80 h-60 bg-white border border-gray-300 rounded-3xl p-4 flex flex-col justify-center items-center space-y-4">
       {/* Image at the top */}
       <img
-        src="./landingPage/puzzle-dynamic-color.svg" // Replace with your image URL
+        src="./landingPage/1-card.png" // Replace with your image URL
         alt="Descriptive alt text"
         className="w-24 h-24 object-cover rounded-full" // Adjust width, height, and rounding as needed
       />
       {/* Heading */}
-      <h3 className="text-lg font-bold text-black">Own</h3>
+      <h3 className="text-2xl md:text-lg  font-bold text-black">Own</h3>
       {/* Text below the heading */}
       <p className="text-base text-black">Own your Web3 namespace.</p>
     </div>
@@ -26,12 +27,12 @@ const MyComponent2 = ({}) => {
     >
       {/* Image at the top */}
       <img
-        src="./landingPage/lock-dynamic-color.svg" // Replace with your image URL
+        src="./landingPage/2-card.png" // Replace with your image URL
         alt="Descriptive alt text"
-        className="w-24 h-24 object-cover rounded-full" // Adjust width, height, and rounding as needed
+        className="w-28 h-26 object-cover rounded-full" // Adjust width, height, and rounding as needed
       />
       {/* Heading */}
-      <h3 className="text-lg font-bold text-white">Secure</h3>
+      <h3 className="text-2xl md:text-lg font-bold text-white">Secure</h3>
       {/* Text below the heading */}
       <p className="text-base text-white">Secure your private smart agent.</p>
       {/* Additional image in the bottom right */}
@@ -51,12 +52,12 @@ const MyComponent3 = ({}) => {
     <div className="w-80 h-60 bg-white border border-gray-300 rounded-3xl p-4 flex flex-col justify-center items-center space-y-4">
       {/* Image at the top */}
       <img
-        src="./landingPage/rocket-dynamic-color.svg" // Replace with your image URL
+        src="./landingPage/3-card.png" // Replace with your image URL
         alt="Descriptive alt text"
         className="w-24 h-24 object-cover rounded-full" // Adjust width, height, and rounding as needed
       />
       {/* Heading */}
-      <h3 className="text-lg font-bold text-black">Earn</h3>
+      <h3 className="text-2xl md:text-lg font-bold text-black">Earn</h3>
       {/* Text below the heading */}
       <p className="text-base text-black">Earn from your Data.</p>
     </div>

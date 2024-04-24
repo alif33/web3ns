@@ -14,9 +14,9 @@ const Footer: React.FC = () => {
 
         <div className="flex flex-col md:flex-row justify-start md:justify-between items-center space-y-8 md:space-y-0 my-8 ">
           {/* Left Half: Secure Your Space Text */}
-          <div className="w-1/2 flex justify-start">
-            <div className="w-3/4">
-              <p className="montserrat text-black font-extrabold text-4xl" >
+          <div className="w-full md:w-1/2 flex justify-start">
+            <div className="w-full md:w-3/4">
+              <p className="montserrat text-center md:text-left  text-black font-extrabold text-4xl" >
                 Secure your web3 domain space now{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#486EB9] to-[#D12865]">
                   before it's too late.

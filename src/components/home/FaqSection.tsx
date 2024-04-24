@@ -135,7 +135,7 @@ const FaqSection: React.FC = () => {
     >
       <div className="container p-4 sm:p-24">
         <div className="w-full">
-          <h1 className="text-5xl text-center font-bold text-[#494949] drop-shadow-md mb-12">
+          <h1 className="text-3xl md:text-5xl text-center font-bold text-[#494949] drop-shadow-md mb-12">
             Frequently Asked Questions
           </h1>
           {faqData.map((item, index) => <FaqItem
