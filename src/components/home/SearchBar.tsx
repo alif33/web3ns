@@ -41,9 +41,9 @@ const SearchBar = ()=>{
         let added = await addDomainName(name, anonymousUserID, email)
         if(added){
           if (userState.isAuth) {
-            // router.push('/smart-agent')
+            router.push('/smart-agent')
           }else{
-            // router.push(`/signup?name=${name}`)
+            router.push(`/signup?name=${name}`)
           }
           
         }
