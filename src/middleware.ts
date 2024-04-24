@@ -1,8 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server';
  
 export function middleware(request: NextRequest) {
-  const __tx__ = request.cookies
-  console.log(__tx__);
+
   
 }
  
