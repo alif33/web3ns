@@ -58,12 +58,14 @@ const SearchBar = ()=>{
         }
     }
 
-    console.log(userState);
-    
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+        handleSearch();
+      }
+    }
+
     useEffect(()=>{
-      if (!userState.isAuth) {
-        // console.log(userState.isAuth);
-        
+      if (!userState.isAuth) {        
         signIn();
       }
     }, [])
@@ -78,6 +80,7 @@ const SearchBar = ()=>{
             aria-label="Search content"
             className="w-full h-14 px-4 rounded-full shadow-inner"
             style={{ fontFamily: "Inter, sans-serif", fontWeight: "600", boxShadow: "inset 0 0 5px #777777" }}
+            onKeyDown={handleKeyDown}
             onChange={(
               e:ChangeEvent<HTMLInputElement>)=>
                 dispatch(setUserDetails({name:e.target.value})

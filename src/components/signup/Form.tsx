@@ -5,7 +5,8 @@ import { useSelector } from "@/lib/hooks"
 import { 
     AuthError, 
     EmailAuthProvider, 
-    signInWithEmailAndPassword 
+    signInWithEmailAndPassword,
+    fetchSignInMethodsForEmail, 
 } from "firebase/auth"
 import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
@@ -26,12 +27,21 @@ const Form:React.FC<FormProps> = ({ domainName })=>{
         const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
         
         if(regex.test(email)){
-            onAuthStateChanged(auth, (user: User | null) => {
-                if (user?.isAnonymous) {
-                    router.push('/set-password')
-                }else{
-                    router.push('/login')
-                }
+            onAuthStateChanged(auth, async (user: User | null) => {
+                fetchSignInMethodsForEmail(auth, email)
+                    .then((result) => {
+                        console.log(result)
+                        
+                    })
+
+                // const signInMethods = await fetchSignInMethodsForEmail(auth, email)
+                // console.log(signInMethods, email);
+                
+                // if (user?.isAnonymous) {
+                //     router.push('/set-password')
+                // }else{
+                //     router.push('/login')
+                // }
             });
         }else{
             toast('Please enter a valid email address')

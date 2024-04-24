@@ -9,7 +9,6 @@ const SmartAgent = ()=>{
     const router = useRouter()
 
     const user = getUser()
-    console.log(user, "USR");
     
     const freeEdition = ["Standard Smart Agent Interface", "Basic models and data setup", "Standard website template", "Self-service support only"]
     const customAi = ["We know brands", "Custom AI", "Customizable models and data", "Optimized Layout", "Personalized Services"]
@@ -57,7 +56,14 @@ const SmartAgent = ()=>{
                             <h2 className="text-[28px] font-bold">Custom AI</h2>
                             <h4 className="text-base text-[#667085] py-3">Description of the tier list will go here, copy should be concise and impactful.</h4>
                             <hr />
-                            <button onClick={()=>router.push("/agent-mission")} className="w-full h-12 text-white font-semibold text-lg bg-gradient-to-r from-custom-purple to-custom-pink my-3 rounded-lg">Contact Us</button>
+                            <a  
+                                href="mailto:ish@3ns.ai?subject=Inquiry%20From%20Website&body=Please%20type%20your%20message%20here." 
+                                className="block w-full h-12 text-white font-semibold text-lg bg-gradient-to-r from-custom-purple to-custom-pink my-3 rounded-lg"
+                            >
+                                <span className="flex w-full h-full justify-center items-center">
+                                    <h3>Contact Us</h3>
+                                </span>
+                            </a>
                             <ul>
                                 {
                                     customAi.map((item, index)=>(
@@ -76,11 +82,6 @@ const SmartAgent = ()=>{
                                 }
                             </ul>                           
                         </div>
-
-
-
-
-
 
                         {/* <div className="bg-white max-w-[400px] rounded-xl shadow-lg px-9 py-9">
                             <h2 className="text-5xl font-semibold">Custom AI</h2>
@@ -104,7 +105,6 @@ const SmartAgent = ()=>{
                                 }
                             </ul>                           
                         </div> */}
-                        
                     </div>
                 </div>
             </div>
