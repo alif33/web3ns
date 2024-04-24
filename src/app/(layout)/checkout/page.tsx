@@ -1,8 +1,18 @@
 "use client"
+import { useEffect, useState } from "react"
 import Image from "next/image"
+import { getDomain } from "@/db/queries"
+import { useSelector } from "react-redux"
+import { RootState } from "@/lib/store"
+import { getAuth } from "@/lib/cookieHandler"
 
 const CheckOut = ()=>{
+    const UserInfo = useSelector((state: RootState) =>state.user)
+    const [domainData, setDomainData] = useState<object>()
 
+    console.log(UserInfo);
+    console.log("Hello");
+    
     const domains = [
         {name: "gagent-name", domainExtension: "btc", logo: "/checkout/btc.svg", age: "3 Years", category: "Bitcoin", price: 2333.33, sold: false},
         {name: "gagent-name", domainExtension: "xyz", logo: "/checkout/farcaster.svg", age: "3 Years", category: "Ethereum", price: 4333.33, sold: false},
@@ -13,6 +23,48 @@ const CheckOut = ()=>{
     const onName  = () => {
 
     }
+
+    useEffect(()=>{
+        const auth = getAuth()
+        getDomain(auth.uid)
+        .then((res)=>{
+            if (res) {
+                setDomainData(res)
+            }
+        })
+    }, [])
+
+  
+    // const formatDomainData = (data: any) => {
+    //     const formattedDomains = {};
+    
+    //     for (const key in data) {
+    //         const [provider, chain, duration, available, currency] = key.split('-');
+    
+    //         if (['ens', '3ns'].includes(provider) && ['m', 'eth'].includes(chain) && available === 'true' && currency === 'usd') {
+    //             const secondsInAYear = 365 * 24 * 60 * 60;
+    //             const durationInYears = duration / secondsInAYear;
+    
+    //             formattedDomains[key] = {
+    //                 provider: provider === '3ns' ? '3NS' : 'ENS',
+    //                 chain: chain === 'm' ? 'Multichain' : 'Ethereum',
+    //                 duration: durationInYears.toFixed(2) + ' years',
+    //                 availability: 'Available',
+    //                 price: data[key] + ' USD'
+    //             };
+    //         } else {
+    //             formattedDomains[key] = {
+    //                 provider: provider === '3ns' ? '3NS' : 'ENS',
+    //                 chain: chain === 'm' ? 'Multichain' : 'Ethereum',
+    //                 duration: duration + ' seconds',
+    //                 availability: 'Taken'
+    //             };
+    //         }
+    //     }
+    
+    //     return formattedDomains;
+    // }
+
 
     return(
         <div className="mx-40">
@@ -106,3 +158,5 @@ const CheckOut = ()=>{
 }
 
 export default CheckOut
+
+// 3ns-m-94608000-true-usd

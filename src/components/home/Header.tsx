@@ -14,7 +14,7 @@ const Heading: React.FC<HeadingProps>  = () => {
 
   return (
     <div className="flex-col">
-      <div className="items-center py-4 px-12 bg-white">
+      <div className="items-center py-4 px-3 md:px-12 bg-white">
         <div className="bg-gray-100 rounded-xl flex items-center border-2 border-grey-800 p-2 w-full">
           {/* Logo */}
           <Link href="/" legacyBehavior>
@@ -25,9 +25,9 @@ const Heading: React.FC<HeadingProps>  = () => {
 
           {/* Navigation Menu */}
           <nav className="flex-grow">
-            <ul className="flex justify-end space-x-8">
-              <li><a href="https://www.3token.xyz/" target="_blank" className="nav-link text-sm font-medium cursor-pointer text-gray-600 hover:text-gray-500 px-4 py-1">3Token</a></li>
-              <li><Link  href="/login" className="nav-link text-sm font-medium cursor-pointer text-gray-600 hover:text-gray-500 px-4 py-1">Login</Link></li>
+            <ul className="flex justify-end space-x-6 md:space-x-8">
+              <li><a href="https://www.3token.xyz/" target="_blank" className="nav-link text-sm font-medium cursor-pointer text-gray-600 hover:text-gray-500 px-0 md:px-4 py-1">3Token</a></li>
+              <li><Link  href="/login" className="nav-link text-sm font-medium cursor-pointer text-gray-600 hover:text-gray-500 px-0 md:px-4 py-1">Login</Link></li>
             </ul>
           </nav>
         </div>
@@ -36,7 +36,7 @@ const Heading: React.FC<HeadingProps>  = () => {
       {/* Sub-header with page title and search bar */}
       <div className="flex flex-col items-center justify-center my-8 p-10">
         <p className="text-center text-lg domain-registration-text">Register a domain space for your AI Agent</p>
-        <h1 className="ClashDisplayBold text-5xl font-bold my-4">
+        <h1 className="ClashDisplayBold text-center text-4xl md:text-5xl font-bold my-4">
           Web3 &nbsp; Smart &nbsp; Agent &nbsp; Names
         </h1>
 

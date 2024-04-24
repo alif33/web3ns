@@ -28,21 +28,31 @@ const Form:React.FC<FormProps> = ({ domainName })=>{
         
         if(regex.test(email)){
             onAuthStateChanged(auth, async (user: User | null) => {
-                fetchSignInMethodsForEmail(auth, email)
-                    .then((result) => {
-                        console.log(result)
-                        
-                    })
+                
+                // fetchSignInMethodsForEmail(auth, email)
+                //     .then((signInMethods) => {
+                //         if (signInMethods.length === 0) {
+                //             console.log("Email: ", `f-${email}-l`)
+                //             console.log("Email not registered. You can create an account with this email.")
+                //         } else {
+                //             console.log("Email is already registered. Please use a different email or log in.")
+                //         }
+                //     })
+                //     .catch((error) => {
+                //         console.error("Error checking sign-in methods for email:", error);
+                //     })
+
 
                 // const signInMethods = await fetchSignInMethodsForEmail(auth, email)
                 // console.log(signInMethods, email);
                 
-                // if (user?.isAnonymous) {
-                //     router.push('/set-password')
-                // }else{
-                //     router.push('/login')
-                // }
-            });
+                if (user?.isAnonymous) {
+                    router.push('/set-password')
+                }else{
+                    router.push('/login')
+                }
+
+            })
         }else{
             toast('Please enter a valid email address')
         }

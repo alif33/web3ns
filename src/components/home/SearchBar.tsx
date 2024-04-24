@@ -82,7 +82,7 @@ const SearchBar = ()=>{
   }, [])
 
   return(
-      <div className="relative search-bar w-2/5">
+      <div className="relative search-bar w-full md:w-2/5">
         {loading && (
           <div className="absolute top-6 left-24">
             <PropagateLoader color="#3674F9" />

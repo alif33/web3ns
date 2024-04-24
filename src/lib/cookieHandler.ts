@@ -1,6 +1,13 @@
 import Cookies from "universal-cookie"
 const cookies = new Cookies()
 
+interface User {
+    uid: string
+    email: string | null
+    displayName: string | null
+    accessToken: string
+}
+
 const setCookie = (key: string, value: {})=>{
     const expiry = new Date();
     expiry.setDate(expiry.getDate() + 1);
@@ -21,7 +28,17 @@ const setIsUser = async (a: boolean)=>{
     }
 }
 
+const setAuthCredentials = async (user: User)=>{
+    setCookie("__iSATHTv__", user)
+}
+
+const getAuth = ()=>{
+    return getCookie("__iSATHTv__") || false 
+}
+
 export { 
     getUser, 
-    setIsUser 
+    setIsUser,
+    getAuth, 
+    setAuthCredentials
 }

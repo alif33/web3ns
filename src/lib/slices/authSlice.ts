@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { getUser } from "@/lib/cookieHandler"
+import { getUser, setAuthCredentials } from "@/lib/cookieHandler"
 
 interface User {
   uid: string
@@ -24,12 +24,14 @@ export const authSlice = createSlice({
   reducers: {
     setUser: (state, action: PayloadAction<{ uid: string, email: string | null, displayName: string | null, accessToken: string }>) => {
       state.user = action.payload
+      setAuthCredentials(action.payload)
       
     },
+
     setAuth: (state, action: PayloadAction<{ isAuth: boolean }>) => {
       state.isAuth = action.payload.isAuth
-      
     },
+    
     clearUser: (state) => {
       state.user = "";
     },
