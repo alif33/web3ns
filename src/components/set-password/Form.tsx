@@ -45,7 +45,7 @@ const Form:React.FC<FormProps> = ()=>{
                     accessToken: user?.refreshToken,
                 }))
                 setAuth({isAuth: true})
-                router.push("/smart-agent")
+                router.push("/checkout")
             }
         } catch (error) {
             const errMessage = getErrorMessage((error as Error).message)

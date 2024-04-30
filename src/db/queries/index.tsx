@@ -1,5 +1,4 @@
 import { 
-    getFirestore, 
     collection, 
     getDocs, 
     doc, 
@@ -8,8 +7,7 @@ import {
     where,
     orderBy,
     limit,
-     
-} from "firebase/firestore"
+  } from "firebase/firestore"
 import { db } from "@/db/firebase"
 
 export const addDomainName = async (domainName: string, anonymousUserId: string | null, email:string | undefined) => {

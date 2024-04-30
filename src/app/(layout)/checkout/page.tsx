@@ -6,9 +6,19 @@ import { useSelector } from "react-redux"
 import { RootState } from "@/lib/store"
 import { getAuth } from "@/lib/cookieHandler"
 
+
+interface FormattedDomain {
+    provider: string;
+    chain: string;
+    duration: string;
+    availability: string;
+    price?: string;
+}
+
+
 const CheckOut = ()=>{
     const UserInfo = useSelector((state: RootState) =>state.user)
-    const [domainData, setDomainData] = useState<object>()
+    const [domainData, setDomainData] = useState<FormattedDomain[]| null>()
 
     console.log(UserInfo);
     console.log("Hello");
@@ -24,47 +34,55 @@ const CheckOut = ()=>{
 
     }
 
+     
+    const formatDomainData = (data: { [key: string]: string }): FormattedDomain[] => {
+        const formattedDomains: FormattedDomain[] = [];
+        const secondsInAYear = 365 * 24 * 60 * 60;
+
+        for (const key in data) {
+            const [provider, chain, durationStr, available, currency] = key.split('-');
+            const duration = parseInt(durationStr);
+    
+            if (['ens', '3ns'].includes(provider) && ['m', 'eth'].includes(chain) && available === 'true' && currency === 'usd') {
+                // const secondsInAYear = 365 * 24 * 60 * 60;
+                const durationInYears = duration / secondsInAYear;
+    
+                formattedDomains.push({
+                    provider: provider === '3ns' ? '3NS' : 'ENS',
+                    chain: chain === 'm' ? 'Multichain' : 'Ethereum',
+                    duration: durationInYears.toFixed(2) + ' Years',
+                    availability: 'Available',
+                    price: data[key] + ' USD'
+                });
+            } else {
+                const durationInYears = duration / secondsInAYear;
+
+                formattedDomains.push({
+                    provider: provider === '3ns' ? '3NS' : 'ENS',
+                    chain: chain === 'm' ? 'Multichain' : 'Ethereum',
+                    duration: durationInYears.toFixed(2) + ' Years',
+                    availability: 'Taken'
+                });
+            }
+        }
+    
+        return formattedDomains;
+    }
+    
+
     useEffect(()=>{
         const auth = getAuth()
         getDomain(auth.uid)
         .then((res)=>{
             if (res) {
-                setDomainData(res)
+                const formattedData: FormattedDomain[] = formatDomainData(res.domainProviderInfo);
+                setDomainData(formattedData);                
             }
         })
     }, [])
 
-  
-    // const formatDomainData = (data: any) => {
-    //     const formattedDomains = {};
+    console.log(domainData);
     
-    //     for (const key in data) {
-    //         const [provider, chain, duration, available, currency] = key.split('-');
-    
-    //         if (['ens', '3ns'].includes(provider) && ['m', 'eth'].includes(chain) && available === 'true' && currency === 'usd') {
-    //             const secondsInAYear = 365 * 24 * 60 * 60;
-    //             const durationInYears = duration / secondsInAYear;
-    
-    //             formattedDomains[key] = {
-    //                 provider: provider === '3ns' ? '3NS' : 'ENS',
-    //                 chain: chain === 'm' ? 'Multichain' : 'Ethereum',
-    //                 duration: durationInYears.toFixed(2) + ' years',
-    //                 availability: 'Available',
-    //                 price: data[key] + ' USD'
-    //             };
-    //         } else {
-    //             formattedDomains[key] = {
-    //                 provider: provider === '3ns' ? '3NS' : 'ENS',
-    //                 chain: chain === 'm' ? 'Multichain' : 'Ethereum',
-    //                 duration: duration + ' seconds',
-    //                 availability: 'Taken'
-    //             };
-    //         }
-    //     }
-    
-    //     return formattedDomains;
-    // }
-
 
     return(
         <div className="mx-40">
@@ -114,7 +132,7 @@ const CheckOut = ()=>{
                 <h3 className="py-3">Add Optional Suggested Domains</h3>
                 <ul>
                     {
-                        domains.map((item, index)=>(
+                        domainData && domainData.map((item, index)=>(
                             <li className="flex justify-between border border-gray-400 p-3 rounded-md mb-5" key={index}>
                                 <div className="flex gap-5">
                                     <div>
@@ -127,15 +145,15 @@ const CheckOut = ()=>{
                                     </div>
                                     <div className="flex flex-col justify-between">
                                         <span className="flex text-3xl"> 
-                                            <h2>{item.name}</h2>
+                                            <h2>{item.provider}</h2>
                                             <h2 className=" font-bold">.{item.domainExtension}</h2>
                                         </span>
                                         <div className="flex">
                                             <div className="min-w-32">
-                                                <h1>{item.age}</h1>
+                                                <h1>{item.duration}</h1>
                                             </div>
                                             <span className="min-w-24">
-                                                <h4>{item.category}</h4>
+                                                <h4>{item.chain}</h4>
                                             </span>
                                             <span>
                                                 {item.price}
@@ -159,4 +177,3 @@ const CheckOut = ()=>{
 
 export default CheckOut
 
-// 3ns-m-94608000-true-usd
