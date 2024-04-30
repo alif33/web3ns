@@ -131,7 +131,7 @@ const CheckOut = ()=>{
             <div>
                 <h3 className="py-3">Add Optional Suggested Domains</h3>
                 <ul>
-                    {
+                    {/* {
                         domainData && domainData.map((item, index)=>(
                             <li className="flex justify-between border border-gray-400 p-3 rounded-md mb-5" key={index}>
                                 <div className="flex gap-5">
@@ -168,7 +168,7 @@ const CheckOut = ()=>{
                             </li>
                         ))
                     }
-                    
+                     */}
                 </ul>
             </div>
         </div>
